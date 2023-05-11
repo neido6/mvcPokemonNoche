@@ -15,6 +15,9 @@
 </div>
 <div class="row mt-5 bg-dark">
     <h1 class="text-white text-center">Tabla de Roles</h1>
+    <textarea name="" id="" cols="30" rows="10">
+        <p>Mensaje Text Area</p>
+    </textarea>
 </div>
 
 <?php include_once "footer.php"; ?>

@@ -23,20 +23,63 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">First</th>
-                    <th scope="col">Last</th>
-                    <th scope="col">Handle</th>
+                    <th scope="col">Rol</th>
+                    <th scope="col" width="25%">Estado</th>
+                    <th scope="col">Opciones</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
-            </tbody>
+            <tbody id="tableBodyRol"></tbody>
         </table>
+    </div>
+</div>
+<div>
+    <!-- Modal -->
+    <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="updateModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-warning bg-gradient">
+                    <h5 class="modal-title col-11 ms-4 text-center" id="updateModalLabel">Modificar Rol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="col-4 d-flex justify-content-end align-items-center">
+                            <span class="fw-bolder">Nombre Rol:</span>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="txtRolMod" name="txtRolMod  " placeholder="admin">
+                                <label for="floatingInput">Nombre Rol</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button onclick="update()" type="button" class="btn btn-warning" data-bs-dismiss="modal">Modificar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div>
+    <!-- Modal -->
+    <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header bg-danger bg-gradient">
+                    <h5 class="modal-title col-11 text-center ms-4" id="deleteModalLabel">Eliminar Rol</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h4>Esta seguro de eliminar el rol? </h4>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Eliminar</button>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 <script src="./assets/js/rol.js"></script>

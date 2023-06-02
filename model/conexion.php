@@ -6,24 +6,24 @@ class Conexion
     private $user = "root";
     private $pass = "";
     private $database = "pokemonnoche";
-    private $con; // Objeto de la clase PDO
+    private $conPDO; // Objeto de la clase PDO
 
     public function __construct()
     {
         try {
-            $this->con = new PDO("mysql:dbname=$this->database;host=$this->host", $this->user, $this->pass);
+            $this->conPDO = new PDO("mysql:dbname=$this->database;host=$this->host", $this->user, $this->pass);
 
-            $this->con->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+            $this->conPDO->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo "Error" . $e->getCode();
         }
     }
 
     /**
-     * Get the value of con
+     * Get the value of conPDO
      */
-    public function getCon()
+    public function getConPDO()
     {
-        return $this->con;
+        return $this->conPDO;
     }
 }

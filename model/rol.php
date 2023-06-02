@@ -22,7 +22,7 @@ class Rol
     public function create()
     {
         try {
-            $sql = $this->conexion->getCon()->prepare("INSERT INTO roles(nombreRol,estado) VALUES(?,?)");
+            $sql = $this->conexion->getConPDO()->prepare("INSERT INTO roles(nombreRol,estado) VALUES(?,?)");
             $sql->bindParam(1, $this->nombreRol);
             $sql->bindParam(2, $this->estado);
             $sql->execute();
@@ -31,6 +31,61 @@ class Rol
             return "Error: " . $e->getMessage();
         }
     }
+
+    public function read()
+    {
+        try {
+
+            $sql = $this->conexion->getConPDO()->prepare("SELECT * FROM roles");
+            $sql->execute();
+            $response = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            return $response;
+        } catch (PDOException $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+    public function update()
+    {
+        try {
+            $sql = $this->conexion->getConPDO()->prepare("UPDATE roles SET nombreRol=? WHERE id=?");
+            $sql->bindParam(1, $this->nombreRol);
+            $sql->bindParam(2, $this->id);
+            $sql->execute();
+            return "Rol Modificado";
+        } catch (PDOException $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+    public function estado()
+    {
+        try {
+            $sql = $this->conexion->getConPDO()->prepare("UPDATE roles SET estado=? WHERE id=?");
+            $sql->bindParam(1, $this->estado);
+            $sql->bindParam(2, $this->id);
+            $sql->execute();
+            return "Estado actualizado";
+        } catch (PDOException $e) {
+            return "Error " . $e->getMessage();
+        }
+    }
+
+    public function readUpdate()
+    {
+        try {
+            $sql = $this->conexion->getConPDO()->prepare("SELECT * FROM roles WHERE id=?");
+            $sql->bindParam(1, $this->id);
+            $sql->execute();
+            $result = $sql->fetchAll(\PDO::FETCH_ASSOC);
+            return $result;
+        } catch (PDOException $e) {
+            return "Error: " . $e->getMessage();
+        }
+    }
+
+
+
     /**
      * Get the value of id
      */
